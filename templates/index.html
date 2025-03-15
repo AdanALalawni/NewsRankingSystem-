@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Ranking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .positive {
+            background-color: #d4edda;
+        }
+
+        .negative {
+            background-color: #f8d7da;
+        }
+
+        .neutral {
+            background-color: #fff3cd;
+        }
+
+        .sentiment {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Rank Sentences by Sentiment</h1>
+    </header>
+
+    <div class="container">
+        <form method="POST">
+            <textarea name="sentences" rows="10" placeholder="Enter one sentence per line"></textarea><br><br>
+            <button type="submit">Rank Sentences</button>
+        </form>
+
+        {% if sentences %}
+            <h2>Ranked Sentences</h2>
+            <ul>
+                {% for sentence, sentiment, score in sentences %}
+                    <li class="{{ sentiment|lower }}">
+                        <span class="sentence">{{ sentence }}</span><br>
+                        <span class="sentiment">Sentiment: {{ sentiment }}</span><br>
+                        <span class="score">Score: {{ score | round(2) }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+</body>
+</html>
