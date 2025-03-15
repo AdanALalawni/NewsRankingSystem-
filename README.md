@@ -1,7 +1,7 @@
 # News Ranking System
 
 ## Project Overview
-The **News Ranking System** is an AI-driven application that ranks news statements based on their sentiment, from most positive to most negative. The system utilizes a pre-trained model from Hugging Face, which has been fine-tuned for optimal performance. The project includes data extraction, transformation, model fine-tuning, and deployment as a Flask API.
+The **News Ranking System** is an AI-driven application that ranks news statements based on their sentiment, from most positive to most negative. The system utilizes a pre-trained model from Hugging Face(DistilBert), which has been fine-tuned for optimal performance. The project includes data extraction, transformation, model fine-tuning, and deployment as a Flask API.
 
 ## Project Structure
 ```
