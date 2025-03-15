@@ -1,0 +1,9 @@
+pandas 
+kagglehub
+torch 
+scikit-learn 
+transformers[torch]
+transformers
+numpy
+huggingface_hub
+flask
