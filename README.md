@@ -6,11 +6,15 @@ The **News Ranking System** is an AI-driven application that ranks news statemen
 ## Project Structure
 ```
 NewsRankingSystem/
-│── app.py                   # Main API entry point
+│── app.py                     # Main API entry point
 │── templates/
-│   ├── index.html            # Web interface for ranking news
-│── assets/                   # Stores images and assets
-│── notebooks/                # Jupyter notebooks for experimentation
+│   ├── index.html              # Web interface for ranking news
+│── assets/                     # Stores images and assets
+│── notebooks/                  # Jupyter notebooks for experimentation
+│── data/                       # Data folder for storing raw and cleaned data
+│   ├── raw.csv                 # Raw data file
+│   ├── cleaned.csv             # Cleaned data folder
+│── logs/                       # Log folder for storing log files
 │── src/
 │   ├── data_operations/
 │   │   ├── data_extraction.py     # Extracts data from Kaggle
@@ -19,8 +23,9 @@ NewsRankingSystem/
 │   ├── data_preparation.py        # Prepares data for fine-tuning
 │   ├── train.py                   # Fine-tunes the pre-trained model
 │── utils/
-│   ├── exceptions.py               # Custom exceptions
-│   ├── logger.py                   # Custom logging utilities
+│   ├── exceptions.py              # Custom exceptions
+│   ├── logger.py                  # Custom logging utilities
+
 ```
 
 ---
