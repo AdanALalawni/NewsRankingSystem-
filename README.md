@@ -6,11 +6,11 @@ The **News Ranking System** is an AI-driven application that ranks news statemen
 ## Project Structure
 ```
 NewsRankingSystem/
-│── app.py                   # Main API entry point
+│── app.py                    # Main API entry point
 │── templates/
-│   ├── index.html            # Web interface for ranking news
-│── assets/                   # Stores images and assets
-│── notebooks/                # Jupyter notebooks for experimentation
+│   ├── index.html             # Web interface for ranking news
+│── assets/                    # Stores images and assets
+│── notebooks/                 # Jupyter notebooks for experimentation
 │── src/
 │   ├── data_operations/
 │   │   ├── data_extraction.py     # Extracts data from Kaggle
@@ -27,26 +27,28 @@ NewsRankingSystem/
 
 ## Project Workflow
 
-1. **Data Extraction & Cleaning**
-   - The dataset is extracted from Kaggle and preprocessed to remove noise.
-   
-2. **Model Fine-Tuning**
-   - A pre-trained sentiment analysis model from Hugging Face is fine-tuned using cleaned data.
-   - The trained model is uploaded to the Hugging Face Model Hub.
-   
-3. **Deployment**
-   - The model is deployed using Flask as an API.
-   - The Hugging Face Inference API is leveraged for real-time sentiment analysis.
-   
-4. **News Ranking Function**
-   - The news statements are ranked using the equation:
-     
-     \[ R = \text{sorted}(S, \text{key} = (s_1 \neq \text{POSITIVE}, -s_2)) \]
-     
-     Where:
-     - \( S \) is the list of sentiment results.
-     - \( s_1 \) represents the sentiment classification.
-     - \( s_2 \) is the confidence score.
+### 1. Data Extraction & Cleaning
+- The dataset is extracted from Kaggle and preprocessed to remove noise.
+
+### 2. Model Fine-Tuning
+- A pre-trained sentiment analysis model from Hugging Face is fine-tuned using cleaned data.
+- The trained model is uploaded to the Hugging Face Model Hub.
+
+### 3. Deployment
+- The model is deployed using Flask as an API.
+- The Hugging Face Inference API is leveraged for real-time sentiment analysis.
+
+### 4. News Ranking Function
+The news statements are ranked using the following equation:
+
+\[
+R = \text{sorted}(S, \text{key} = (s_1 \neq \text{POSITIVE}, -s_2))
+\]
+
+Where:
+- \( S \) is the list of sentiment results.
+- \( s_1 \) represents the sentiment classification.
+- \( s_2 \) is the confidence score.
 
 ![Ranking Process](assets/ranking_process.png)
 
