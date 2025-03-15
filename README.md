@@ -28,7 +28,7 @@ NewsRankingSystem/
 ## Project Workflow
 
 1. **Data Extraction & Cleaning**
-   - The dataset is extracted from Kaggle and preprocessed to remove noise.
+   - The dataset is extracted from Kaggle and preprocessed to remove unused column.
    
 2. **Model Fine-Tuning**
    - A pre-trained sentiment analysis model from Hugging Face is fine-tuned using cleaned data.
@@ -38,24 +38,23 @@ NewsRankingSystem/
    - The model is deployed using Flask as an API.
    - The Hugging Face Inference API is leveraged for real-time sentiment analysis.
    
-4. **News Ranking Function**
-   - The news statements are ranked using the equation:
-     
-     \[
-     R = \operatorname{sorted}\left(S, \operatorname{key} = \left(s_1 \neq \text{POSITIVE}, -s_2\right)\right)
-     \]
-     
-     Where:
-     - \( S \) is the list of sentiment results.
-     - \( s_1 \) represents the sentiment classification.
-     - \( s_2 \) is the confidence score.
+4. ### News Ranking Function
+The news statements are ranked using the following equation:
 
-![Ranking Process](assets/ranking_process.png)
+**R = sorted(S, key=(s₁ ≠ "POSITIVE", -s₂))**
+
+Where:
+- **S** is the list of sentiment results.
+- **s₁** represents the sentiment classification.
+- **s₂** is the confidence score.
+
+
+![Ranking Process](https://github.com/AdanALalawni/NewsRankingSystem-/blob/main/assets/Project_Outlines.png)
 
 ---
 
 ## Conclusion
-The News Ranking System efficiently analyzes and ranks news statements based on sentiment. With an automated pipeline for data preparation, model training, and deployment, the system provides an easy-to-use API for sentiment-based news ranking.
+The News Ranking System efficiently analyzes and ranks news statements based on sentiment. With a pipeline for data preparation, model training, and deployment, the system provides an easy-to-use API for sentiment-based news ranking.
 
-![Results](assets/results.png)
+![Results](https://github.com/AdanALalawni/NewsRankingSystem-/blob/main/assets/Webscreen.png)
 
