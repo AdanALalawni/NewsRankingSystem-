@@ -3,8 +3,9 @@ from transformers import pipeline
 
 app = Flask(__name__)
 
+MODEL_NAME ="YOUR MODEL NAME"
 # Load the model and the text-classification pipeline
-pipe = pipeline("text-classification", model="adanal/HelloWorld")
+pipe = pipeline("text-classification", model=MODEL_NAME)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -20,8 +21,8 @@ def index():
             score = result[0]['score']
             results.append((sentence, sentiment, score))
 
-        # Sort by the score (positive -> negative)
-        ranked_results = sorted(results, key=lambda x: x[2], reverse=True)
+        # Sort: Positive first, then negative, both by score
+        ranked_results = sorted(results, key=lambda x: (x[1] != "POSITIVE", -x[2]))
 
         return render_template("index.html", sentences=ranked_results)
     
